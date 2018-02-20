@@ -25,7 +25,7 @@ function Student(name, subject, grade, yearInCollege, age, hasDegree, money) {
 Student.prototype.upYear = function() {
     if (this.hasDegree) {
         this.yearInCollege = 4
-        console.log("Toz student e zavur6il ve !")
+        console.log("This student is already graduated!")
 
     } else {
         this.yearInCollege++
@@ -38,7 +38,7 @@ Student.prototype.upYear = function() {
 Student.prototype.receiveScholarship = function(min, amount) {
     if ((this.grade >= min) && (this.age < 30)) {
         this.money += amount
-        console.log("Parite sled stipedniqta sa : " + this.money)
+        console.log("The money after scholarship is: " + this.money)
         return this.money
     }
 }
@@ -57,7 +57,7 @@ StudentGroup.prototype.addStudent = function(student) {
             this.freePlaces--
         }
     } else {
-        console.log(`Tos ${student.name}  e zavur6il ve `)
+        console.log(`${student.name} is already graduated `)
         console.log()
     }
 }
@@ -76,44 +76,44 @@ StudentGroup.prototype.theBestStudentName = function() {
                 bestGrade = this.students[index].grade
             }
         }
-        console.log(naiVisokUspehStudent + " e s nai-dobur useph : " + bestGrade)
+        console.log(naiVisokUspehStudent + " is with highest marks : " + bestGrade)
         return bestGrade;
     }
 }
 StudentGroup.prototype.printStudentsInGroup = function() {
     var index = 0;
     for (index; index < this.students.length; index++) {
-        console.log("Ime :" + this.students[index].name)
-        console.log("Predmet :" + this.students[index].subject)
-        console.log("Ocenka :" + this.students[index].grade)
-        console.log("Godina v Universiteta :" + this.students[index].yearInCollege)
-        console.log("Ima li diploma :" + this.students[index].hasDegree)
-        console.log("Godini :" + this.students[index].age)
-        console.log("Kolko pari ima :" + this.students[index].money)
+        console.log("Name :" + this.students[index].name)
+        console.log("Subject :" + this.students[index].subject)
+        console.log("Mark :" + this.students[index].grade)
+        console.log("Year in University :" + this.students[index].yearInCollege)
+        console.log("Has a degree :" + this.students[index].hasDegree)
+        console.log("Age :" + this.students[index].age)
+        console.log("Money :" + this.students[index].money)
         console.log()
     }
 }
-var spindi = new Student("BatSpindi", 'risuvane', 5.96, 2, 19, false, 200)
-var bat = new Student("Batman", 'risuvane', 5.11, 2, 19, false, 200)
-var cap = new Student("Capitan Amerika", 'risuvane', 5.06, 3, 26, true, 220)
-var iron = new Student("IronMan", 'gimnastika', 4.56, 3, 19, false, 100)
+var spindi = new Student("Spiderman", 'drawing', 5.96, 2, 19, false, 200)
+var bat = new Student("Batman", 'drawing', 5.11, 2, 19, false, 200)
+var cap = new Student("Capitan Amerika", 'drawing', 5.06, 3, 26, true, 220)
+var iron = new Student("IronMan", 'swimming', 4.56, 3, 19, false, 100)
 
 spindi.upYear()
 console.log(spindi.yearInCollege)
 spindi.receiveScholarship(4, 10)
 
-var ris = new StudentGroup("risuvane")
-ris.addStudent(spindi)
-ris.addStudent(bat)
-ris.addStudent(iron)
-ris.addStudent(cap)
-console.log(ris)
-ris.theBestStudentName()
-console.log(ris)
+var drawGroup = new StudentGroup("drawing")
+drawGroup.addStudent(spindi)
+drawGroup.addStudent(bat)
+drawGroup.addStudent(iron)
+drawGroup.addStudent(cap)
+console.log(drawGroup)
+drawGroup.theBestStudentName()
+console.log(drawGroup)
 cap.hasDegree = true
-ris.addStudent(cap)
-ris.printStudentsInGroup()
-ris.theBestStudentName()
-    // ris.emptyGroup()
+drawGroup.addStudent(cap)
+drawGroup.printStudentsInGroup()
+drawGroup.theBestStudentName()
+    // drawGroup.emptyGroup()
 console.log(StudentGroup.prototype)
 console.log(cap.constructor)
