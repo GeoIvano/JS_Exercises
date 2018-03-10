@@ -67,16 +67,16 @@ StudentGroup.prototype.emptyGroup = function() {
 }
 StudentGroup.prototype.theBestStudentName = function() {
     if (!this.hasDegree) {
-        var naiVisokUspehStudent = this.students[0].name
+        var highestMarks = this.students[0].name
         var index = 0
         var bestGrade = this.students[0].grade
         for (index; index < this.students.length; index++) {
             if (this.students[index].grade > bestGrade) {
-                naiVisokUspehStudent = this.students[index].name
+                highestMarks = this.students[index].name
                 bestGrade = this.students[index].grade
             }
         }
-        console.log(naiVisokUspehStudent + " is with highest marks : " + bestGrade)
+        console.log(highestMarks + " is with highest marks : " + bestGrade)
         return bestGrade;
     }
 }
@@ -93,17 +93,17 @@ StudentGroup.prototype.printStudentsInGroup = function() {
         console.log()
     }
 }
-var spindi = new Student("Spiderman", 'drawing', 5.96, 2, 19, false, 200)
+var spider = new Student("Spiderman", 'drawing', 5.96, 2, 19, false, 200)
 var bat = new Student("Batman", 'drawing', 5.11, 2, 19, false, 200)
 var cap = new Student("Capitan Amerika", 'drawing', 5.06, 3, 26, true, 220)
 var iron = new Student("IronMan", 'swimming', 4.56, 3, 19, false, 100)
 
-spindi.upYear()
-console.log(spindi.yearInCollege)
-spindi.receiveScholarship(4, 10)
+spider.upYear()
+console.log(spider.yearInCollege)
+spider.receiveScholarship(4, 10)
 
 var drawGroup = new StudentGroup("drawing")
-drawGroup.addStudent(spindi)
+drawGroup.addStudent(spider)
 drawGroup.addStudent(bat)
 drawGroup.addStudent(iron)
 drawGroup.addStudent(cap)
